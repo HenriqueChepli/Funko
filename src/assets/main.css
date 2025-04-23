@@ -9,3 +9,46 @@
 ul{
   list-style: none;
 }
+
+#app{
+  width: 100%;
+  height: 100dvh;
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  flex-direction: column;
+}
+
+header nav .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  width: 100%;
+  border-bottom: solid 1px #0d0d0d;
+}
+
+header nav .funkos ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 0;
+  max-width: 1480px;
+  border-bottom: solid 1px #0d0d0d;
+}
+
+header nav .funkos ul li img {
+  width: 250px;
+  border-bottom: solid 0 1px #0d0d0d;
+}
+footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+}

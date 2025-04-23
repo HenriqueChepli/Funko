@@ -1,13 +1,91 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funko</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/src/assets/main.css">
+  <title>Funko</title>
+  <!-- Vue 3 CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <nav>
+        <div class="nav">
+          <img src="#" alt="Titulo" />
+          <img src="#" alt="Carrinho" />
+        </div>
+        <div class="funkos">
+          <ul>
+            <li v-for="funko in funkos" :key="funko.id">
+              <img :src="funko.image" alt="Image Funko" />
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      
+    </main>
+    <footer>
+      <img src="#" alt="#">
+      <h2>Contate-nos!</h2>
+   </footer>
+  </div>
+
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          funkos: [
+            {
+              id: 1,
+              name: 'Funko Pop! Harry Potter - Harry Potter',
+              price: 10.99,
+              image: '/src/assets/img/images.jpeg',
+              description: 'Harry Potter with glasses and a wand.',
+              quantity: 1,
+            },
+            {
+              id: 2,
+              name: 'Funko Pop! Harry Potter - Hermione Granger',
+              price: 10.99,
+              image: '/src/assets/img/images.jpeg',
+              description: 'Hermione Granger with a book.',
+              quantity: 1,
+            },
+            {
+              id: 3,
+              name: 'Funko Pop! Harry Potter - Ron Weasley',
+              price: 10.99,
+              image: '/src/assets/img/images.jpeg',
+              description: 'Ron Weasley with a wand.',
+              quantity: 1,
+            },
+            {
+              id: 4,
+              name: 'Funko Pop! Harry Potter - Albus Dumbledore',
+              price: 10.99,
+              image: '/src/assets/img/images.jpeg',
+              description: 'Albus Dumbledore with a wand.',
+              quantity: 1,
+            },
+            {
+              id: 5,
+              name: 'Funko Pop! Harry Potter - Severus Snape',
+              price: 10.99,
+              image: '/src/assets/img/images.jpeg',
+              description: 'Severus Snape with a potion.',
+              quantity: 1,
+            }
+          ]
+        };
+      }
+    }).mount('#app');
+  </script>
+</body>
 </html>
