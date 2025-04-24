@@ -37,10 +37,19 @@
         <div class="info">
           <h1>{{ Funko.name }}</h1>
           <p>{{ Funko.description }}</p>
-          <p>Preço: R$ {{ Funko.price }}</p>
+          <p class="price">R$ {{ Funko.price }}</p>
+          <p class="installment">em até 5x sem juros</p>
+          <button class="buy-button">COMPRAR</button>
+          <div class="quantity-selector">
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+          </div>
         </div>
       </div>
     </main>
+    
+    
     <footer>
       <img src="#" alt="#" />
       <h2>Contate-nos!</h2>
