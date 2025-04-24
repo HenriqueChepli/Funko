@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/src/assets/main.css">
   <title>Funko</title>
-  <!-- Vue 3 CDN -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
@@ -20,7 +19,11 @@
         <div class="funkos">
           <ul>
             <li v-for="funko in funkos" :key="funko.id">
-              <img :src="funko.image" alt="Image Funko" />
+              <img 
+                :src="funko.image" 
+                alt="Image Funko" 
+                @mouseover="changeImage(funko.image, funko.name, funko.price)"
+              />
             </li>
           </ul>
         </div>
@@ -29,29 +32,38 @@
     <main>
       <div class="main">
         <div class="img">
-          <img src="src/assets/img/aki.png" alt="">
+          <img :src="Funko.image" alt="Selected Funko" />
         </div>
         <div class="info">
-
+          <h1>{{ Funko.name }}</h1>
+          <p>{{ Funko.description }}</p>
+          <p>Preço: R$ {{ Funko.price }}</p>
         </div>
       </div>
     </main>
     <footer>
-      <img src="#" alt="#">
+      <img src="#" alt="#" />
       <h2>Contate-nos!</h2>
-   </footer>
+    </footer>
   </div>
 
   <script>
-    const { createApp } = Vue;
+    const { createApp, ref } = Vue;
 
     createApp({
       setup() {
+        const changeImage = (funkoImage, funkoName) => {
+          Funko.value.image = funkoImage;
+          Funko.value.name = funkoName;
+        };
 
-          const changeImage = (variantImage, variantTitle) => {
-            image.value = variantImage;
-            product_title.value = variantTitle;
-          };
+        const Funko = ref({
+          id: 1,
+          name: 'Funko Pop! Chainsaw man - Aki',
+          price: 10.99,
+          image: '/src/assets/img/aki.png',
+          description: 'Harry Potter with glasses and a wand.',
+        });
         return {
           funkos: [
             {
@@ -134,7 +146,9 @@
               description: 'Severus Snape with a potion.',
               quantity: 1,
             }
-          ]
+          ],
+          Funko,
+          changeImage,
         };
       }
     }).mount('#app');
